@@ -1,30 +1,35 @@
-const express = require('express');
-const ProductManager = require('./01-prueba')
-ProductManager
-const app = express();
-const PORT = 8080; 
-
-const server = app.listen(PORT, () => {
-    console.log(`Server en linea en puerto ${PORT}`)
-})
+const express = require('express')
+const app = express()
+const port = 8080
+const fs = require('fs')
+const productosJSON = require('./productos.json')
 
 
-app.get('/', (req, res) => {
-    res.send("Server con expresss JS")
-    res.status(200).send('OK');
-})
 
-app.get('/products/:id', (req, res) => {
+app.get('/productos', (req, res) => {
+    res.json(productosJSON);
+});
 
-    let resultado = x
 
-    if (req.query.limit) {
-        resultado = resultado.slice(0, req.query.limit)
-    }
+app.get('/productos/:id', (req, res) => {
 
     let id = req.params.id
+    resultado = productosJSON.find(prod => prod.id == id)
 
-    res.setHeader('Content-Type', 'text/plain')
-    res.json({products:products.json})
-})
+    if (resultado){
+        fs.readFile('productos.json', 'utf8', (err, data) => {
+
+            const productos = JSON.parse(data);
+            res.status(200).json({ resultado });
+
+        });
+    }else{
+        res.status(404).json({ error: 'Producto no encontrado' })
+    }
+});
+
+app.listen(port, () => {
+    console.log(`Server funcionando con Express en el puerto ${port}`);
+});
+
 

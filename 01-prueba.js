@@ -88,3 +88,14 @@ class ProductManager {
 }
 
 const pm=new ProductManager("./productos.json")
+
+pm.addProduct("prueba1", "archivo prueba1", "100", "sin imagen", 1, 10)
+pm.addProduct("prueba2", "archivo prueba2", "200", "sin imagen", 2, 20)
+pm.addProduct("prueba3", "archivo prueba3", "300", "sin imagen", 3, 30)
+pm.addProduct("prueba4", "archivo prueba4", "400", "sin imagen", 4, 40)
+pm.addProduct("prueba5", "archivo prueba5", "500", "sin imagen", 5, 50)
+pm.addProduct("prueba6", "archivo prueba6", "600", "sin imagen", 6, 60)
+pm.addProduct("prueba7", "archivo prueba7", "700", "sin imagen", 7, 70)
+pm.addProduct("prueba8", "archivo prueba8", "800", "sin imagen", 8, 80)
+pm.addProduct("prueba9", "archivo prueba9", "900", "sin imagen", 9, 90)
+pm.addProduct("prueba10", "archivo prueba10", "1000", "sin imagen", 10, 100)
